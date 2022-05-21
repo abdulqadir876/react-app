@@ -1,33 +1,31 @@
-import { useState } from 'react'
-import easylogo from '../img/easy.png'
-import { NavData } from './NavData'
-import { Link } from 'react-router-dom'
+import React from 'react'
+import { HiMenuAlt3 } from 'react-icons/hi'
 
 const Nav = () => {
-    const [selected, setSelected] = useState(0);
-
-    return (
-        <div className='bg-[#F16738] h-[69px] flex items-center'>
-            <div className='container mx-auto flex justify-between items-center'>
-                <div className="logo">
-                    <img className='w-24' src={easylogo} alt="" />
-                </div>
-                <nav>
-                    <ul className='flex gap-4'>
-                        {/* <li><a href="#" className='text-lg text-white'>Home</a></li> */}
-                        {NavData.map((item, index) => {
-                            return (
-                                <li key={index}  onClick={() => setSelected(index)} className={`text-lg ${selected === 'index' ?  'text-blue-500' : 'text-white'}`}>
-                                     
-                                    <Link to={item.path}  >{item.title}  </Link>
-                                </li>
-                            )
-                        })}
-                    </ul>
-                </nav>
-            </div>
+  return (
+    <div className='bg-red h-16'>
+      <div className='container  mx-auto flex justify-between items-center text-primary h-full'>
+        {/* logo */}
+        <div>
+          <h1 className='text-2xl '>A</h1>
         </div>
-    )
+        {/* nav */}
+        <nav className='flex items-center'>
+          <ul className='hidden md:flex gap-5 mr-4'>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Experiance</a></li>
+            <li><a href="#">Work</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+            <button className='border-2 border-btn px-4 py-2 rounded'>Resume</button>
+        </nav>
+        {/* menu icon */}
+        <div className='sm:hidden'>
+          <HiMenuAlt3 />
+        </div>
+      </div>
+    </div>
+  )
 }
 
 export default Nav
